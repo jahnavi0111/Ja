@@ -1,0 +1,291 @@
+/* ========================================
+   ABOUT SECTION STYLES
+   ======================================== */
+
+.about {
+  background: var(--color-bg-alt);
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--space-xl);
+  margin-top: var(--space-lg);
+}
+
+/* About Text */
+.about-text h3 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  margin-bottom: var(--space-md);
+  color: var(--color-primary);
+}
+
+.about-text p {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+
+.about-highlights {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.highlight-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-base);
+}
+
+.highlight-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-secondary);
+}
+
+.highlight-icon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-secondary), var(--color-accent));
+  border-radius: var(--radius-sm);
+  color: white;
+}
+
+.highlight-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.highlight-item h4 {
+  font-size: 1.125rem;
+  margin-bottom: 0.25rem;
+  color: var(--color-primary);
+}
+
+.highlight-item p {
+  font-size: 0.9375rem;
+  margin: 0;
+  color: var(--color-text-light);
+}
+
+/* About Sidebar */
+.about-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.about-skills,
+.about-experience {
+  background: var(--color-bg);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.about-skills h4,
+.about-experience h4 {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-md);
+  color: var(--color-primary);
+}
+
+/* Skills */
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skill-name {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.skill-level {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+}
+
+.skill-bar {
+  height: 8px;
+  background: var(--color-border);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-secondary), var(--color-accent));
+  border-radius: 4px;
+  width: var(--progress);
+  transition: width 1s ease;
+  position: relative;
+}
+
+.skill-progress::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Experience Timeline */
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.experience-item {
+  display: flex;
+  gap: 1rem;
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+.experience-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 32px;
+  top: 40px;
+  bottom: -1.5rem;
+  width: 2px;
+  background: var(--color-border);
+}
+
+.experience-year {
+  min-width: 80px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+  padding: 0.25rem 0.75rem;
+  background: rgba(255, 107, 53, 0.1);
+  border-radius: var(--radius-sm);
+  text-align: center;
+  height: fit-content;
+  position: relative;
+  z-index: 1;
+}
+
+.experience-content h5 {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: var(--color-primary);
+}
+
+.experience-company {
+  font-size: 0.9375rem;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+
+.experience-description {
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 1024px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+  
+  .about-highlights {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-highlights {
+    gap: var(--space-sm);
+  }
+  
+  .highlight-item {
+    padding: 1.25rem;
+  }
+  
+  .highlight-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
+  
+  .highlight-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .about-skills,
+  .about-experience {
+    padding: var(--space-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .about-highlights {
+    grid-template-columns: 1fr;
+  }
+  
+  .experience-item {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .experience-item:not(:last-child)::after {
+    display: none;
+  }
+  
+  .experience-year {
+    width: fit-content;
+  }
+}
